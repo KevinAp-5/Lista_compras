@@ -2,15 +2,17 @@ class Carrinho:
     def __init__(self):
         self.produtos = list()
 
+    def _checar_carrinho(self):
+        if len(self.produtos) == 0:
+            print('Adicione um item no carrinho primeiro.')
+            return
+
     def adicionar(self, produto):
         if type(produto.produto) == dict:
             self.produtos.append(produto.produto)
 
     def mostrar(self):
-        if len(self.produtos) == 0:
-            print('Adicione um item no carrinho primeiro.')
-            return
-
+        self._checar_carrinho()
         for produto in self.produtos:
             for nome, valor in produto.items():
                 print(f'Produto: {nome}\nValor: {valor:.2f}')
