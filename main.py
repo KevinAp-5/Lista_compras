@@ -19,8 +19,8 @@ class Carrinho:
 
         for produto in self.produtos:
             for nome, valor in produto.items():
-                print(f'Produto: {nome}\nValor: {valor:.2f}')
-            print('-'*50)
+                print('{:<40} R${:.2f}'.format(nome, valor))
+        print("{}\n{:<40} R${}".format("-"*50, "Total:", self.somar()))
 
     def somar(self):
         if self._checar_carrinho():
