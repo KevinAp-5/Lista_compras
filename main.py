@@ -22,6 +22,16 @@ class Carrinho:
                 print(f'Produto: {nome}\nValor: {valor:.2f}')
             print('-'*50)
 
+    def somar(self):
+        if self._checar_carrinho():
+            return
+
+        valor_total = 0
+        for produto in self.produtos:
+            for valor in produto.values():
+                valor_total += valor
+        return valor_total
+
 
 class Produto:
     def __init__(self, nome, preco=0.0):
